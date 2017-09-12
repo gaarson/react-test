@@ -20,8 +20,10 @@ sagaMiddleware.run(sagas);
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <Route exact path="/" component={App} />
-            <Route path="/:depName/:id" component={EditEmploye} />
+            <div>
+                <Route exact path="/" component={App} />
+                <Route path="/:depName/:id" component={EditEmploye} />
+            </div>
         </Router>
     </Provider>,
     document.getElementById('root'));
