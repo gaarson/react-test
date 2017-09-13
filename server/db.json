@@ -1,0 +1,17 @@
+{
+  "departments": [
+    { "id": 1, "name": "Общественности" },
+    { "id": 2, "name": "Еще чего департамент" },
+    { "id": 3, "name": "Доброты" },
+    { "id": 4, "name": "Строгости" },
+    { "id": 5, "name": "Милосеридия" }
+  ],
+  "employes": [
+    { "id": 1, "first_name": "Vanya", "last_name": "Chuvak", "department_id": 1 },
+    { "id": 2, "first_name": "Vanya", "last_name": "Pusuovich", "department_id": 2 },
+    { "id": 3, "first_name": "Vanya", "last_name": "Pusuovich", "department_id": 2 },
+    { "id": 4, "first_name": "Vanya", "last_name": "Pusuovich", "department_id": 4 },
+    { "id": 5, "first_name": "Vanya", "last_name": "Pusuovich", "department_id": 3 },
+    { "id": 6, "first_name": "Vanya", "last_name": "Pusuovich", "department_id": 3 }
+  ]
+}
