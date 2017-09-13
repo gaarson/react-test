@@ -3,26 +3,28 @@ import { connect } from 'react-redux';
 import { employe } from "../../actions/index";
 import './edit-employe.css';
 
-const mapState = ({ departments }, {match: {params: {dep_id, id}}}) => {
-  return {
-    departments: departments.map(d => ({id: d.id, name: d.name})),
-    employeData: departments.filter(d => d.id === +dep_id)[0].employes.filter(e => e.id === +id)[0]
-  }
-};
+const mapState = ({ employeData }, {match: {params: {dep_id, id}}}) => ({
+    params: {dep_id, id},
+    employeData
+});
 
 const mapDispatch = dispatch => ({
   changeData: (event, employeData) => {
     dispatch(employe.changeData(event.target.id));
     dispatch(employe.pending(employeData));
-  }
+  },
+  getEmploye: (params) => (employe.pending(params))
 });
 
 const EditEmploye =
   ({
      employeData,
      changeData,
-     departments
+     departments,
+     getEmloye
   }) => {
+    getEmploye();
+
     return (
       <div className="edit-employe">
         <div>

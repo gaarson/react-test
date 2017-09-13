@@ -15,8 +15,16 @@ export const getDepartmentsUsers = () => (
   })
 );
 
-export const updateEmploye = (employe) => (
+export const employe = (employe, type) => (
   new Promise((resolve, reject) => {
+    req(type, url + '/api/employe')
+      .send(employe)
+      .end((err, res) => {
+        if (err) reject(err);
 
+        console.log(res.body);
+
+        resolve(res.body);
+      })
   })
 );
