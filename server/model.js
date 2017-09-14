@@ -20,12 +20,24 @@ exports.getDepsUsers = async () => (
   })
 );
 
-exports.updateEmployeData = (employe) => (
+exports.updateEmployeData = async (employe, update) => (
   new Promise((resolve, reject) => {
 
     let employes = JSON.parse(db).employes;
-    let result = [];
+    let departments = JSON.parse(db).departments;
+    let result = {};
 
+    console.log('employe', employes);
+    if(!update)
+      result = employes.filter(e => e.id === +employe.id)[0];
+    else {
+      employes = employes.map(e => e.id === +employe.id ? employe : e);
+      fs.writeFileSync(path.join(__dirname, './db.json'), JSON.stringify(({employes, departments})));
+      result = employes.filter(e => e.id === +employe.id)[0];
+    }
+
+    console.log(result);
+    resolve(result);
 
   })
 );

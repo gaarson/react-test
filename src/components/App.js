@@ -9,7 +9,7 @@ const App = () =>
   <Router>
     <div className="container">
         <Route path="/" component={DepartmentsList} />
-        <Route path="/:dep_id/:id" component={EditEmploye} />
+        <Route path="/:id" component={EditEmploye} />
     </div>
   </Router>
 

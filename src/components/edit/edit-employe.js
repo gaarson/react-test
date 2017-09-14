@@ -3,27 +3,28 @@ import { connect } from 'react-redux';
 import { employe } from "../../actions/index";
 import './edit-employe.css';
 
-const mapState = ({ employeData }, {match: {params: {dep_id, id}}}) => ({
-    params: {dep_id, id},
+const mapState = ({ employeData, departments }, {match: {params: {id}}}) => ({
+    params: {id},
+    departments,
     employeData
 });
 
 const mapDispatch = dispatch => ({
-  changeData: (event, employeData) => {
-    dispatch(employe.changeData(event.target.id));
-    dispatch(employe.pending(employeData));
-  },
-  getEmploye: (params) => (employe.pending(params))
+  changeData: (event, employeData) => dispatch(employe.changeData(event.target)),
+  getEmploye: (params, type) => dispatch(employe.pending(params, type))
 });
 
 const EditEmploye =
   ({
      employeData,
-     changeData,
      departments,
-     getEmloye
+     changeData,
+     getEmploye,
+     params
   }) => {
-    getEmploye();
+    (!Object.keys(employeData).length ||
+      employeData.id !== +params.id) && getEmploye(params, 'GET');
+
 
     return (
       <div className="edit-employe">
@@ -33,13 +34,13 @@ const EditEmploye =
             type="text"
             className="employe-input"
             id="first_name"
-            value={employeData.first_name}
+            value={employeData.first_name || ""}
             onChange={(e) => changeData(e, employeData)}/>
           <input
             type="text"
             className="employe-input"
             id="last_name"
-            value={employeData.last_name}
+            value={employeData.last_name || ""}
             onChange={(e) => changeData(e, employeData)}/>
 
             <select
@@ -59,9 +60,15 @@ const EditEmploye =
               }
             </select>
 
+            <input
+              type="submit"
+              value="Update"
+              onClick={() => getEmploye(employeData, 'POST')}
+            />
+
         </div>
       </div>
     )
-}
+};
 
 export default connect(mapState, mapDispatch)(EditEmploye);

@@ -1,17 +1,1 @@
-{
-  "departments": [
-    { "id": 1, "name": "Общественности" },
-    { "id": 2, "name": "Еще чего департамент" },
-    { "id": 3, "name": "Доброты" },
-    { "id": 4, "name": "Строгости" },
-    { "id": 5, "name": "Милосеридия" }
-  ],
-  "employes": [
-    { "id": 1, "first_name": "Vanya", "last_name": "Chuvak", "department_id": 1 },
-    { "id": 2, "first_name": "Vanya", "last_name": "Pusuovich", "department_id": 2 },
-    { "id": 3, "first_name": "Vanya", "last_name": "Pusuovich", "department_id": 2 },
-    { "id": 4, "first_name": "Vanya", "last_name": "Pusuovich", "department_id": 4 },
-    { "id": 5, "first_name": "Vanya", "last_name": "Pusuovich", "department_id": 3 },
-    { "id": 6, "first_name": "Vanya", "last_name": "Pusuovich", "department_id": 3 }
-  ]
-}
+{"employes":[{"id":6,"first_name":"chuvak","last_name":"norm","department_id":"1"},{"id":2,"first_name":"Name","last_name":"Surname","department_id":"2"},{"id":3,"first_name":"Ruslan","last_name":"Переименовываю","department_id":"1"},{"id":5,"first_name":"ne norm1","last_name":"chuvakee","department_id":"7"},{"id":4,"first_name":"Pssssq","last_name":"wew","department_id":"4"}],"departments":[{"id":"1","name":"DEr 1"},{"id":"2","name":"DEr 2"},{"id":"3","name":"DEr 3"},{"id":"4","name":"DEr 4"},{"id":"5","name":"DEr 5"},{"id":"6","name":"DEr 6"},{"id":"7","name":"DEr 7"}]}

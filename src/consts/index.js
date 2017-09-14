@@ -1,7 +1,8 @@
 export const DEP = {
   PENDING: 'DEP_PENDING',
   SUCCESS: 'DEP_SUCCESS',
-  ERROR: 'DEP_ERROR'
+  ERROR: 'DEP_ERROR',
+  UPDATE_EMPLOYE: 'UPDATE_EMPLOYE'
 };
 
 export const EMPLOYE = {

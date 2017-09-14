@@ -15,9 +15,9 @@ export const getDepartmentsUsers = () => (
   })
 );
 
-export const employe = (employe, type) => (
+export const employeData = (employe, type) => (
   new Promise((resolve, reject) => {
-    req(type, url + '/api/employe')
+    req(type, url + '/api/employe/' + employe.id)
       .send(employe)
       .end((err, res) => {
         if (err) reject(err);

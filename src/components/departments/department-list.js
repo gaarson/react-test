@@ -12,6 +12,7 @@ const DepartmentsList = ({ departments, getList }) => {
 
   return (
     <div className="dep-list">
+      { console.log(departments) }
       <ul>
         {
           departments.map(department => (
@@ -21,7 +22,7 @@ const DepartmentsList = ({ departments, getList }) => {
                   {
                     department.employes.map(employe => (
                       <li key={employe.id}>
-                        <Link to={'/' + department.id + '/' + employe.id}>
+                        <Link to={'/' + employe.id}>
                           {employe.first_name + ' ' + employe.last_name}
                         </Link>
                       </li>
