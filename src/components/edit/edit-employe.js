@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { employe } from "../../actions/index";
 import './edit-employe.css';
 
+import {FormControl, Button} from 'react-bootstrap';
+
 const mapState = ({ employeData, departments }, {match: {params: {id}}}) => ({
     params: {id},
     departments,
@@ -29,20 +31,26 @@ const EditEmploye =
     return (
       <div className="edit-employe">
         <div>
-
-          <input
-            type="text"
-            className="employe-input"
-            id="first_name"
-            value={employeData.first_name || ""}
-            onChange={(e) => changeData(e, employeData)}/>
-          <input
-            type="text"
-            className="employe-input"
-            id="last_name"
-            value={employeData.last_name || ""}
-            onChange={(e) => changeData(e, employeData)}/>
-
+          <label htmlFor="first_name">
+            <p>Имя</p>
+            <FormControl
+              type="text"
+              className="employe-input"
+              id="first_name"
+              value={employeData.first_name || ""}
+              onChange={(e) => changeData(e, employeData)}/>
+          </label>
+          <label htmlFor="second_name">
+            <p>Фамилия</p>
+            <FormControl
+              type="text"
+              className="employe-input"
+              id="last_name"
+              value={employeData.last_name || ""}
+              onChange={(e) => changeData(e, employeData)}/>
+          </label>
+          <label htmlFor="department_id">
+            <p>Действующий департамент</p>
             <select
               id="department_id"
               value={employeData.department_id}
@@ -59,13 +67,13 @@ const EditEmploye =
                 ))
               }
             </select>
-
-            <input
+          </label>
+            <Button
+              className="update"
               type="submit"
               value="Update"
               onClick={() => getEmploye(employeData, 'POST')}
-            />
-
+            >Обновить данные сотрудника</Button>
         </div>
       </div>
     )

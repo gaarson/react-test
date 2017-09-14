@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -10,11 +11,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.set('port', process.env.PORT || 3001);
 
-if (process.env.PORT === 'production') {
-    app.use(express.static('../build'));
+console.log(process.env.NODE_ENV);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, './../build')));
 }
 
 app.use('/api', require('./routes'));
+
+app.get('*', (err, res) => { res.sendFile(path.join(__dirname, './../build/index.html'))})
 
 app.listen(app.get('port'), () => {
     console.log('Find the server at ' + app.get('port'));

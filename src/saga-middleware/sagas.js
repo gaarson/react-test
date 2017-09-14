@@ -6,7 +6,6 @@ import * as req from './requests';
 function * fetchEmployeData({reqType, data}) {
   try {
     const employeData = yield call(req.employeData, data, reqType);
-
     yield put(employe.success(employeData));
     if(reqType === "POST") yield put(dep.updateEmploye(employeData));
   } catch (error) {

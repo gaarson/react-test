@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { dep } from './../../actions';
 import './departments-list.css';
+import {ListGroup, ListGroupItem} from 'react-bootstrap';
 
 const mapState = ({ departments }) => ({ departments });
 const mapDispatch = dispatch => ({ getList: () => dispatch(dep.pending()) });
@@ -12,11 +13,10 @@ const DepartmentsList = ({ departments, getList }) => {
 
   return (
     <div className="dep-list">
-      { console.log(departments) }
-      <ul>
+      <ListGroup>
         {
           departments.map(department => (
-            <li key={department.id}>
+            <ListGroupItem key={department.id}>
               {department.name}
                 <ul>
                   {
@@ -29,10 +29,10 @@ const DepartmentsList = ({ departments, getList }) => {
                     ))
                   }
                 </ul>
-            </li>
+            </ListGroupItem>
           ))
         }
-      </ul>
+      </ListGroup>
     </div>
   )
 }

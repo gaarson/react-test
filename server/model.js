@@ -27,7 +27,6 @@ exports.updateEmployeData = async (employe, update) => (
     let departments = JSON.parse(db).departments;
     let result = {};
 
-    console.log('employe', employes);
     if(!update)
       result = employes.filter(e => e.id === +employe.id)[0];
     else {
@@ -36,7 +35,6 @@ exports.updateEmployeData = async (employe, update) => (
       result = employes.filter(e => e.id === +employe.id)[0];
     }
 
-    console.log(result);
     resolve(result);
 
   })

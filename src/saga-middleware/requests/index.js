@@ -8,8 +8,6 @@ export const getDepartmentsUsers = () => (
       .end((err, res) => {
         if (err) reject(err);
 
-        console.log(res.body);
-
         resolve(res.body);
       })
   })
@@ -21,8 +19,6 @@ export const employeData = (employe, type) => (
       .send(employe)
       .end((err, res) => {
         if (err) reject(err);
-
-        console.log(res.body);
 
         resolve(res.body);
       })
